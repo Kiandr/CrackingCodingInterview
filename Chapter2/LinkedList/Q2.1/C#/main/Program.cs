@@ -60,10 +60,6 @@ namespace main
                  
                     }
                     // Key iteration
-                    {
-                        throw new System.NotImplementedException();
-                        yield return default(ElementType);
-                    }
                     prev=prev.next;
                     prt=prev.next;
 
