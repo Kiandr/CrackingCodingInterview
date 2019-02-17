@@ -1,4 +1,8 @@
-# 2.1: Remove Dup:
-Write a code to remove duplicate from an unsorted linked list.
-Followup: How would you solve this if temporary buffer is not available
-Hit #9, #40
+# 2.3: Delete Middle Node:
+Implement an algorithm to delete a node in the middle (i.e., any node but
+the frist and last node, not necessarily the exact middle) of singly linked list, given any access to 
+that node. 
+EXAMPLE
+Input: the node c from the lined list a->b->c->d->e->f
+Result: nothing is returned, but the new linked list looks like a->b->d->e->f
+Hints #72

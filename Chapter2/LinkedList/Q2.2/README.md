@@ -1,4 +1,3 @@
-# 2.1: Remove Dup:
-Write a code to remove duplicate from an unsorted linked list.
-Followup: How would you solve this if temporary buffer is not available
-Hit #9, #40
+# 2.3: Return Kth to Last:
+Implement an algorithm to find the kth to last element of singly linked list.
+Hints #8, #25, #41, #67, #126
