@@ -1,6 +1,6 @@
 clear all
 rm a.out
-gcc main.c
+g++ main.c
 ./a.out
 rm a.out
 

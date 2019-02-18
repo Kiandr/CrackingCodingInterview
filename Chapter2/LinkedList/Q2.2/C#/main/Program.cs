@@ -2,86 +2,74 @@
 
 namespace main
 {
-     public class Node {
-         
-            public int data {get;set;} 
-             public Node next {get;set;}
-            public Node(int a){
-                this.data = a>0 ? a:0;
-                 next = null;
-            }      
-            public Node getNode (){
-                return this;
-                }
-
+    // In C# classes are null, set null struct and data types
+    public class Node
+    {
+        public int? data;
+        public Node next;
+        public Node() { }
+        public Node(int a)
+        {
+            this.data = a > 0 ? a : 0;
+            this.next = null;
         }
-        public class LinkedList{
-            public Node head {get;set;}
-            public LinkedList( int a ){
-                int val = a > 0 ? a:0;
-                this.head = this.head == null ?    new Node(val).getNode() : this.Append(val);
-            }
+    }
 
-            public Node Append(int a){
-                int val = a>0 ? a: 0;
-                Node prt = this.head;
-                while (prt.next != null) {
-                    // Console.WriteLine ("prt data {0}",prt.data);
+    public class List
+    {
+        public Node HEAD;
+        public List() { }
+        public List(int a)
+        {
+            HEAD = Equals(HEAD, null) ? new Node(a > 0 ? a : 0) : HEAD;
+        }
+        public void Append(int a)
+        {
+            if (Equals(HEAD, null))
+                HEAD = new Node(a > 0 ? a : 0);
+            else
+            {
+                Node prt = HEAD;
+                while (!Equals(prt.next, null))
+                {
                     prt = prt.next;
-                    }
-                prt.next = new Node (a);
-                return this.head;
-
-            }
-            public void Print(){
-             Node prt = this.head;
-                while (prt!=null) {
-                    Console.WriteLine("data is : {0} and prt=prt.next = {0};",prt.data,prt.next);
-                    prt=prt.next;
                 }
-            }
-            public void Duplicates(){
-                Node prt = head == null || head.next == null ? null : this.head.next;
-                Node prev = head;
-                Console.WriteLine("{0} == {0}",prev.data ,prt.data);
-                while (prev.next!=null){
-                    while (prt.next!=null){
-                        if (prev.data == prt.data){
-                            // Console.WriteLine("{0} == {0}",prev.data ,prt.data);
-                            // By pass the duplicate note SOS
-                            prev.next = prt.next;
-                            prt= prev.next; 
-                            
-                        } else{
-                            // only move the prt
-                            prt=prt.next;    
-                        }
-                       
-                 
-                    }
-                    // Key iteration
-                    prev=prev.next;
-                    prt=prev.next;
-
-                }
+                prt.next = new Node(a > 0 ? a : 0);
             }
         }
+        public void Print()
+        {
+            Node prt = HEAD;
+            while (!Equals(prt, null))
+            {
+                Console.WriteLine(prt.data);
+                prt = prt.next;
+            }
+        }
+        public void getKthNode(int a)
+        {
+            int l = 0;
+            Node prt = HEAD;
+            while (prt != null && l < a)
+            {
+                prt = prt.next;
+                l++;
+            }
+            if (l == a) Console.WriteLine("==={0}==",prt.data.ToString());
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            
-             LinkedList list = new LinkedList(10);
-            int len = 20;
-            while (len>0){
-            list.Append(len);
-            len--;
-            }
-            list.Duplicates();
-            list.Print();
-
-
-
+            List myList = new List(20);
+            int len = 0;
+            while (len < 10) myList.Append(len++);
+            myList.Print();
+            for (int i=0;i<10;i++) myList.getKthNode(i);
+           // Console.WriteLine(Equals(myList.HEAD, null));
         }
     }
+
 }
