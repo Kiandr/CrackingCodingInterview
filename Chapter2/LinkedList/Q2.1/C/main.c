@@ -39,6 +39,8 @@ OR
 Run this for length of linked list 
 */
 void RemoveDuplicates(struct Node *header){
+    // considering corner case, when header is null, or header next is null
+ if (header == NULL || header->next == NULL) return;
  struct Node *prt = header->next;
     struct Node *prev = header;
     while (prev->next != NULL){
