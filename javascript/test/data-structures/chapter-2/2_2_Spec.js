@@ -1,91 +1,23 @@
 require('../../test_helper');
-describe(LinkedList_2_2, function () {
-  describe('LinkedList_2_2 findKthElementFromEnd #2C (recursion returning array of node and counter)', function () {
 
-  it('returns null if 0 length list', function () {
-      var l = new SinglyLinkedList();
-      var item = LinkedList_2_2.findKthElementFromEnd2C(l, 1);
-      expect(item).to.be.null;
-    });
-    
-    it('returns null if k >= list length', function () {
-      var l = new SinglyLinkedList();
-      l.addBottom(new Node("foo"));
-      var item = LinkedList_2_2.findKthElementFromEnd2C(l, 1);
-      expect(item).to.be.null;
+describe('2.2 #nthToLast', function () {
+  describe('return Kth element to last', function () {
+    var sll;
+    beforeEach(function() {
+      sll = new MyLinkedList();
+      for(var i=1; i < 6; i++) {
+        sll.addNode( i + 'Node', null);
+      }
     });
 
-    it('returns 1st item in 1 length list k == 0', function () {
-      var l = new SinglyLinkedList();
-      l.addBottom(new Node("foo"));
-      var item = LinkedList_2_2.findKthElementFromEnd2C(l, 0);
-      expect(item).to.be.not.null;
-      expect(item.data).to.equal("foo");
+    afterEach(function() {
+      sll = null;
     });
 
-
-    it('returns 1st item in 2 length list k == 0', function () {
-      var l = new SinglyLinkedList();
-      l.addBottom(new Node("foo"));
-      l.addBottom(new Node("bar"));
-      var item = LinkedList_2_2.findKthElementFromEnd2C(l, 0);
-      expect(item).to.be.not.null;
-      expect(item.data).to.equal("bar");
+    it('should return Kth element to last', function () {
+      var kthNode = sll.nthToLast(sll.head, 3);
+      expect(kthNode).to.not.be.null;
+      expect(kthNode).to.have.property('data').and.be.equal('3Node');
     });
-    
-    it('returns 2nd item in 2 length list k == 1', function () {
-      var l = new SinglyLinkedList();
-      l.addBottom(new Node("foo"));
-      l.addBottom(new Node("bar"));
-      var item = LinkedList_2_2.findKthElementFromEnd2C(l, 1);
-      expect(item).to.be.not.null;
-      expect(item.data).to.equal("foo");
-    });
-    
   });
-
-describe('LinkedList_2_2 findKthElementFromEnd #4 (stack of pointers to linked list items)', function () {
-
-  it('returns null if 0 length list', function () {
-      var l = new SinglyLinkedList();
-      var item = LinkedList_2_2.findKthElementFromEnd4(l, 1);
-      expect(item).to.be.null;
-    });
-    
-    it('returns null if k >= list length', function () {
-      var l = new SinglyLinkedList();
-      l.addBottom(new Node("foo"));
-      var item = LinkedList_2_2.findKthElementFromEnd4(l, 1);
-      expect(item).to.be.null;
-    });
-
-    it('returns 1st item in 1 length list k == 0', function () {
-      var l = new SinglyLinkedList();
-      l.addBottom(new Node("foo"));
-      var item = LinkedList_2_2.findKthElementFromEnd4(l, 0);
-      expect(item).to.be.not.null;
-      expect(item.data).to.equal("foo");
-    });
-
-
-    it('returns 1st item in 2 length list k == 0', function () {
-      var l = new SinglyLinkedList();
-      l.addBottom(new Node("foo"));
-      l.addBottom(new Node("bar"));
-      var item = LinkedList_2_2.findKthElementFromEnd4(l, 0);
-      expect(item).to.be.not.null;
-      expect(item.data).to.equal("bar");
-    });
-    
-    it('returns 2nd item in 2 length list k == 1', function () {
-      var l = new SinglyLinkedList();
-      l.addBottom(new Node("foo"));
-      l.addBottom(new Node("bar"));
-      var item = LinkedList_2_2.findKthElementFromEnd4(l, 1);
-      expect(item).to.be.not.null;
-      expect(item.data).to.equal("foo");
-    });
-    
-  });
-
 });

@@ -1,38 +1,23 @@
-module.exports = LinkedList_2_1 = (function() {
-  var deleteDuplicatesA = function(linkedList) {
-    if(!linkedList || !linkedList.head) return;
-    var values = {};
-    var prev = linkedList.head;
-    var current = prev;
-    values[prev.data] = true;
-    while(current.next) {
-      var current = prev.next;
-      if(values[current.data]) {
-        prev.next = current.next;
-      } else {
-        values[current.data] = true;
-      }
-    }
-  };
+var SLL = require('./helper.js');
 
-  var deleteDuplicatesB = function(linkedList) {
-    if(!linkedList || !linkedList.head) return;
-    var current = linkedList.head;
-    while(current) {
+  SLL.prototype.removeDups = function(head) {
+
+   if (head === null || head.next === null) {
+      return null;
+    }
+
+   var current = head;
+
+   while(current !== null) {
       var runner = current;
-      while(runner.next) {
-        if(current.data === runner.next.data) {
-          runner.next = runner.next.next; // delete the dup
+      while (runner.next !== null) {
+        if (runner.next.data === current.data) {
+          runner.next = runner.next.next;
+          this.length--;
         } else {
           runner = runner.next;
         }
       }
-      current = current.next;  
+      current = current.next;
     }
-  }
-
-  return {
-    deleteDuplicatesA: deleteDuplicatesA,
-    deleteDuplicatesB: deleteDuplicatesB
-  }
-}());
+  };

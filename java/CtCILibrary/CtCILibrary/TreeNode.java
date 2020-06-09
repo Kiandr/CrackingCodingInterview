@@ -15,14 +15,14 @@ public class TreeNode {
 		size = 1;
 	}
 	
-	public void setLeftChild(TreeNode left) {
+	private void setLeftChild(TreeNode left) {
 		this.left = left;
 		if (left != null) {
 			left.parent = this;
 		}
 	}
 	
-	public void setRightChild(TreeNode right) {
+	private void setRightChild(TreeNode right) {
 		this.right = right;
 		if (right != null) {
 			right.parent = this;
@@ -94,7 +94,7 @@ public class TreeNode {
 		return n;
 	}
 	
-	public static TreeNode createMinimalBST(int array[]) {
+	public static TreeNode createMinimalBST(int[] array) {
 		return createMinimalBST(array, 0, array.length - 1);
 	}
 	

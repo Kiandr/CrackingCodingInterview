@@ -1,8 +1,9 @@
-Cracking The Coding Interview
-=============================
-
-This repository contains the solutions for 'Cracking The Coding Interview' book problems in GO
-
-###Contributor
-
-* Dinesh Appavoo ([@DineshAppavoo](https://twitter.com/DineshAppavoo))
+# Test Instructions
+Add the `go` folder of this repo to your `GOPATH`:
+```
+export GOPATH=$GOPATH:/path/to/repo/go
+```
+then you can run tests for each chapter like so:
+```
+go test chapter1
+```
